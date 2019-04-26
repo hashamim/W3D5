@@ -5,7 +5,7 @@ module Searchable
   def where(params)
     # ...
     str = params.keys.map{|param|" #{param} = :#{param}"}
-    str = str.join(",")
+    str = str.join(" AND ")
     debugger 
     arr = DBConnection.execute(<<-SQL,params)
     SELECT *
